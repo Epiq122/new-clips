@@ -21,6 +21,11 @@ export class ModalService {
     this.modals.push({ id, visible: false });
   }
 
+  unregister(id: string) {
+    //remove moldal
+    this.modals = this.modals.filter((element) => element.id !== id);
+  }
+
   isModalVisible(id: string): boolean {
     // ? - optional chaining, if the first part is undefined, it will return undefined.
     return !!this.modals.find((element) => element.id === id)?.visible;
